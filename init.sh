@@ -31,6 +31,12 @@ apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys F762215
 apt-get update
 apt-get install docker-engine
 usermod -aG docker admin
+
+# install docker-composer
+curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
 cd $HOME_DIR
 sudo cp -f $REPO_DIR/run_docker_server.sh $HOME_DIR/run_docker_server.sh
 sudo chmod 0755 $HOME_DIR/run_docker_server.sh
