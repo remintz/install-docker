@@ -24,15 +24,12 @@ apt-get install -y \
      ca-certificates \
      curl \
      gnupg2 \
-     software-properties-common
-curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
-apt-key fingerprint 0EBFCD88
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
-   $(lsb_release -cs) \
-   stable"
+     software-properties-common \
+	 dirmngr
+echo 'deb https://apt.dockerproject.org/repo debian-stretch main' >> /etc/apt/sources.list
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys F76221572C52609D
 apt-get update
-apt-get install -y docker-ce=17.09.0~ce-0~debian
+apt-get install docker-engine
 usermod -aG docker admin
 cd $HOME_DIR
 sudo cp -f $REPO_DIR/run_docker_server.sh $HOME_DIR/run_docker_server.sh
