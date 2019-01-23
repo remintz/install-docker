@@ -48,7 +48,7 @@ sudo crontab -l -u root | cat - $REPO_DIR/cron-reboot-entry-docker | sudo cronta
 #####################################################################################
 
 echo -e "--------------------------------------------------------------------------"
-echo -e " The RPDlite Server is going to reboot now!"
+echo -e " The server is going to reboot now!"
 echo -e "--------------------------------------------------------------------------"
 sleep 5
 shutdown -r now
